@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Movies": {
+    "movies": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -95,10 +95,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Movies:build:production"
+              "buildTarget": "movies:build:production"
             },
             "development": {
-              "buildTarget": "Movies:build:development"
+              "buildTarget": "movies:build:development"
             }
           },
           "defaultConfiguration": "development"
