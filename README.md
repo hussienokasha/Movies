@@ -1,4 +1,4 @@
-# <a href="https://hussienokasha.github.io/Movies/">LIVE DEMO</a>
+# <a href="https://hussienokasha.github.io/movies/">LIVE DEMO</a>
 
 # Movies
 
