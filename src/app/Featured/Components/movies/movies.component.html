@@ -1,0 +1,93 @@
+
+  <div class="py-5">
+    <div class="d-flex flex-wrap align-items-center gap-3">
+      <h1 class="fs-2">Movies</h1>
+      <div
+      class="btn-group-sm d-flex gap-2 flex-wrap"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="popular"
+        autocomplete="off"
+        (change)="onRadioChange('popular')"
+        [checked]="selectedType === 'popular' "
+      />
+      <label class="btn btn-outline-primary rounded-pill" for="popular">Popular</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="top-rated"
+        autocomplete="off"
+        (change)="onRadioChange('top_rated')"
+        [checked]="selectedType === 'top_rated'"
+      />
+      <label class="btn btn-outline-primary rounded-pill" for="top-rated">Top Rated</label>
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="now"
+        autocomplete="off"
+        (change)="onRadioChange('now_playing')"
+        [checked]="selectedType === 'now_playing'"
+      />
+      <label class="btn btn-outline-primary rounded-pill" for="now">Now Playing</label>
+
+
+    </div>
+    </div>
+    <div class="row">
+      @for(pop of moviesList;track pop.id){
+      <div class="col-6 col-md-4 col-lg-2 g-3 movie">
+        @defer {
+          <div class="rounded-2 overflow-hidden position-relative cursor-pointer" [routerLink]="['/movie',pop.id]">
+            <div
+              class="d-flex justify-content-center align-content-center position-absolute end-0 bottom-0 p-1 gap-1"
+            >
+              <!-- @for(g of pop.genre_ids.slice(0,2);track g){
+              <p class="genre bg-dark rounded-pill text-white bg-opacity-75">
+                {{ g | genre }}
+              </p>
+              } -->
+            </div>
+            <img
+              src="https://image.tmdb.org/t/p/w500{{ pop.poster_path }}"
+              alt=""
+              class="w-100"
+            />
+            <p
+              class="position-absolute title text-light text-center m-0 p-4 mb-4 fw-bold fs-4"
+            >
+              {{ pop.title }}
+            </p>
+            <div
+              class="rate text-bg-dark bg-opacity-75 d-inline-block rounded-2 d-flex justify-content-center align-items-center gap-1 p-1 position-absolute top-0 start-0 m-1"
+            >
+              <p class="m-0">{{ pop.vote_average | number : "1.1-1" }}</p>
+              <i
+                class="pi pi-star-fill"
+                style="color: rgb(240, 210, 43); font-size: 10px"
+              ></i>
+            </div>
+            <div
+              class="date position-absolute text-bg-dark bg-opacity-50 end-0 mb-1 me-1 rounded-pill p-1"
+            >
+              <!-- <p>{{ pop.release_date.slice(0, 4) }}</p> -->
+            </div>
+          </div>
+        }@placeholder {
+          <p-skeleton width="10rem" height="15rem" />
+        }
+      </div>
+
+      }
+    </div>
+  </div>
+

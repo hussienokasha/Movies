@@ -1,0 +1,27 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.landing {
+  background-size: cover;
+
+  background-position: center;
+
+  position: relative;
+}
+.landing::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color:rgba(255, 255, 255, 0.2); ;
+  backdrop-filter: blur(1px);
+  filter: brightness(0.7);
+
+}

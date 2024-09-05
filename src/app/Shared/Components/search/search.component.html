@@ -1,0 +1,41 @@
+<div>
+  <div class=" position-fixed w-75 start-50 translate-middle-x">
+    <input
+      type="input"
+      class="form-control rounded-3"
+      id="floating"
+      placeholder="Search"
+      [formControl]="searchControl"
+    />
+    <label for="floating">Search for multimedia</label>
+  </div>
+  <div class="search-result d-flex flex-column pt-5">
+    @for(result of filteredMedia;track result){
+      @if(result.poster_path){
+        <div class="d-flex flex-wrap justify-content-between align-items-start p-3 gap-2 rounded-2 shadow border border-light-subtle mt-2" (click)="goToDetails(result.media_type, result.id)">
+          <img
+            [src]="result.poster_path | imgPrefix : 'w500'"
+            alt=""
+            class="object-fit-cover rounded-2"
+            width="130px"
+          />
+          <div class="d-flex flex-column ms-auto me-3">
+            <p class="m-0">{{result.vote_average | number:"1.1-1"}} <i class="pi pi-star-fill" style="color: rgb(250, 221, 94)"></i></p>
+            <p class="m-0">{{result.media_type}}</p>
+            <p class="m-0">Language:{{result.original_language}}</p>
+          </div>
+          <div class="info">
+            <p class="fs-4 fw-bold m-0">{{ result.name || result.original_name }}</p>
+            <div class="d-flex m-0 gap-2">
+              @for(g of result.genre_ids;track g){
+
+              <p class="fs-6 bg-secondary-subtle rounded-pill px-1 ">{{ g | genre }}</p>
+              }
+            </div>
+            <p class="m-0"> {{result.first_air_date | date}}</p>
+          </div>
+        </div>
+      }
+    }
+  </div>
+</div>

@@ -1,0 +1,24 @@
+:host ::ng-deep  .p-element {
+  padding: 0;
+  font-size: 16px;
+}
+
+
+:host ::ng-deep .p-dropdown-items {
+  padding: 0;
+}
+ul li a {
+  transition: 0.3s;
+}
+ul li a:hover {
+  color: rgb(255, 49, 49);
+}
+img{
+transition: 0.5s;
+}
+img:hover {
+  transform: rotate(360deg);
+}
+.offcanvas-start {
+  width: fit-content;
+}

@@ -1,0 +1,58 @@
+<div
+  class="landing w-100 d-flex justify-content-start align-items-center"
+  [style.backgroundImage]="
+    'url(' + (tvDetails!.backdrop_path | imgPrefix) + ')'
+  "
+>
+  <div class="container z-2 position-relative ms-0">
+    <div class="row align-items-center justify-content-start my-5 me-auto">
+      <div class="col-12 col-md-6 d-inline-block">
+        <img
+          class="d-flex ms-auto rounded-2"
+          [src]="tvDetails!.poster_path | imgPrefix : 'w500'"
+          width="220px"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="info text-white p-3">
+          <h2 class="movie-name fs-2 fw-bold">
+            {{ tvDetails?.name || tvDetails?.original_name }}
+          </h2>
+          <div class="d-flex align-items-center gap-3">
+            <p class="genre">
+              @for(g of tvDetails?.genres;track g){
+              <span class="ms-1"> • {{ g.name }}</span>
+              } |
+            </p>
+          </div>
+          <p>
+            <span class="fw-bold text-white-50">Seasons</span> :
+            {{ tvDetails?.number_of_seasons }}
+          </p>
+          <p class="text-white-50 fw-bold">{{ tvDetails?.tagline }}</p>
+
+          <p class="rate">
+            <span class="ms-1 fs-5"
+              >{{ tvDetails?.vote_average}}
+              <i class="pi pi-star-fill" style="color: rgb(250, 221, 94)"></i>
+            </span>
+          </p>
+          <h3>Overview</h3>
+          <p class="overview">{{ tvDetails?.overview }}</p>
+          <button
+            class="btn btn-outline-light rounded-pill"
+            (click)="showTrailerDialog()"
+          >
+            Play Trailer <i class="pi pi-play-circle mt-1"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <app-cast [mediaId]="tvId!" [mediaType]="'tv'" />
+  <app-recommendation [mediaId]="tvId!" [mediaType]="'tv'" />
+</div>

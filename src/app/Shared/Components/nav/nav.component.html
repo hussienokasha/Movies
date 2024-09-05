@@ -1,0 +1,127 @@
+<nav class="shadow fixed-top bg-body">
+  <div class="container">
+    <div class="p-2 d-flex align-items-center justify-content-between">
+      <a
+        routerLink="/home"
+        class="text-decoration-none d-flex align-items-center"
+      >
+        <img
+          src="assets/logo/movie_4240275.png"
+          alt="MovieApp logo"
+          width="50px"
+        />
+        <span class="ms-2 fw-bold fs-4 text-danger m-auto">MovieApp</span>
+      </a>
+      <div class="d-flex align-items-center">
+        <ul class="d-md-flex m-0 gap-3 list-unstyled fs-5 d-none">
+          <li>
+            <a
+              routerLink="/movies"
+              class="text-decoration-none px-2 pb-1"
+              routerLinkActive="text-bg-danger rounded-pill"
+              >Movies</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/tv"
+              class="text-decoration-none px-2 pb-1"
+              routerLinkActive="text-bg-danger rounded-pill"
+              >TV Shows</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/people"
+              class="text-decoration-none px-2 pb-1"
+              routerLinkActive="text-bg-danger rounded-pill"
+              >People</a
+            >
+          </li>
+        </ul>
+        <button class="btn mt-1 ms-3" (click)="openSearchDialog()">
+          <i class="pi pi-search fs-5"></i>
+        </button>
+        <p-dropdown
+          class="ms-2 d-none d-md-block"
+          [formControl]="selectedLang"
+          [options]="langs"
+          optionLabel="name"
+          placeholder="Language"
+        />
+        <button
+          class="btn ms-2 d-md-none"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasExample"
+        >
+          <i class="pi pi-align-justify fs-5"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- offcanvas -->
+<div
+  class="offcanvas offcanvas-start "
+  tabindex="-1"
+  id="offcanvasExample"
+
+>
+  <div class="offcanvas-header">
+    <a
+      routerLink="/home"
+      class="text-decoration-none d-flex align-items-center"
+    >
+      <img
+        src="assets/logo/movie_4240275.png"
+        alt="MovieApp logo"
+        width="50px"
+      />
+      <span class="ms-2 fw-bold fs-4 text-danger m-auto">MovieApp</span>
+    </a>
+    <button
+      type="button"
+      class="btn-close ms-2"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="d-flex align-items-start flex-column">
+      <ul class="d-flex m-0 gap-1 list-unstyled fs-5 flex-column">
+        <li>
+          <a
+            routerLink="/movies"
+            class="text-decoration-none px-2 pb-1"
+            routerLinkActive="text-bg-danger rounded-pill"
+            >Movies</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/tv"
+            class="text-decoration-none px-2 pb-1"
+            routerLinkActive="text-bg-danger rounded-pill"
+            >TV Shows</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="/people"
+            class="text-decoration-none px-2 pb-1"
+            routerLinkActive="text-bg-danger rounded-pill"
+            >People</a
+          >
+        </li>
+      </ul>
+
+      <p-dropdown
+        class="ms-2"
+        [formControl]="selectedLang"
+        [options]="langs"
+        optionLabel="name"
+        placeholder="Language"
+      />
+    </div>
+  </div>
+</div>

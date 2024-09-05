@@ -1,0 +1,8 @@
+
+<app-tv (totalResult)="getTotalResult($event)" (resultPerPage)="getResultPerPage($event)" (category)="getTvCat($event)" ></app-tv>
+<p-paginator
+  [first]=" resultPerPage *pageNum"
+  (onPageChange)="changePage($event)"
+  [rows]="resultPerPage + 1"
+  [totalRecords]="totalResult"
+/>

@@ -1,0 +1,41 @@
+.title {
+  transition: 0.4s;
+  width: 100%;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+  font-size: 18px;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.date {
+  bottom: -100%;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+.movie:hover {
+  .title {
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.39);
+    box-shadow: 1px 1px 21px 34px rgba(0, 0, 0, 0.39);
+  }
+  .date{
+    bottom: 0;
+  }
+}
+.rate{
+  font-size: 12px;
+}
+.genre{
+  font-size: 11px;
+  padding: 3px;
+}
